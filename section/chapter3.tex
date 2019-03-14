@@ -7,3 +7,140 @@ PLease tell where is the data come from, a little brief of company can be put he
 Definition, steps, algoritm or equation of method 1 and how to apply into your data
 \section{Method 2}
 Definition, steps, algoritm or equation of method 2 and how to apply into your data
+
+\section{Aip Suprapto Munari/1164063}
+\subsection{Teori}
+Tugas Harian 5 
+\begin{enumerate}
+\item Random Forest Dan Ilustrasi Gambarnya
+\begin{itemize}
+\item Pengertian Random Forest:
+\par Random Forest adalah suatu algoritma yang digunakan pada klasifikasi data dalam jumlah yang besar. Klasifikasi random forest dilakukan melalui penggabungan pohon  dengan melakukan training pada sampel data yang dimiliki. Penggunaan pohon (tree) yang semakin banyak akan mempengaruhi akurasi yang akan didapatkan menjadi lebih baik. Penentuan klasifikasi dengan random forest diambil berdasarkan hasil voting dari pohon yang terbentuk. Pemenang dari pohon yang terbentuk ditentukan dengan vote terbanyak. 
+\par Pembangunan pohon  pada random forest sampai dengan mencapai ukuran maksimum dari pohon data. Akan tetapi,pembangunan pohon random foresttidak dilakukan pemangkasan  yang merupakan sebuah metode untuk mengurangi kompleksitas ruang.
+\item Ilustrasi Gambar Random Forest :
+\par
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.9]{figures/AIP/asm1.PNG}
+\caption{Random Forest}
+\label{contoh}
+\end{figure}
+
+\par
+\end{itemize}
+
+\item Cara Membaca Dataset
+
+Berikut adalah cara membaca dataset :
+\begin{itemize}
+\item Buka Anaconda Navigator lalu jalankan Syder, kemudian import libraries yang dibutuhkan.
+\item Masukkan kode python untuk membaca file csv, lalu jalankan
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/y1.PNG}
+\caption{(b)}
+\label{contoh}
+\end{figure}
+\par (c) Maka pada window console akan menampilkan pesan berikut :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.9]{figures/AIP/y2.PNG}
+\caption{(c)}
+\label{contoh}
+\end{figure}
+\par (d) Dari explorer dapat terlihat dataset yang terimport.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.6]{figures/AIP/y3.PNG}
+\caption{(d)}
+\label{contoh}
+\end{figure}
+\par (e) Lalu klik dataset cell, maka akan muncul seperti berikut :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.9]{figures/AIP/y4.PNG}
+\caption{(e)}
+\label{contoh}
+\end{figure}
+\par (f) Seperti yang terlihat pada gambar tersebut dataset ini memiliki Kolom Country, Age, dan Salary sebagai independent variable-nya dan kolom Purchased sebagai dependent variable-nya.
+\par (g) Selanjutnya buat 2 matrix of features yang berisi values dari independent variable dan dependent variable.
+\par (h) Lalu tuliskan perintah berikut :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.9]{figures/AIP/y5.PNG}
+\caption{(h)}
+\label{contoh}
+\end{figure}
+\par (i) Perintah yang telah dibuat di atas akan membuat sebuah global environment baru dan muncul dataset.
+\par (j) Klik dataset tersebut maka muncul tabel berisi dataset.
+
+\end{itemize}
+
+\item Cross Validation
+\begin{itemize}
+\item Pengertian Cross Validation : 
+\par Cross Validation adalah sebuah teknik validasi model yang digunakan untuk menilai bagaimana hasil analisis statistik akan digeneralisasi ke kumpulan data independen. Cross validation digunakan dengan tujuan prediksi, dan bila kita ingin memperkirakan seberapa akurat model model prediksi yang dilakukan dalam sebuah praktek. Tujuan dari cross validation yaitu untuk mendefinisikan dataset guna menguju dalam fase pelatihan untuk membatasi masalah seperti overfitting dan underfitting serta mendapatkan wawasan tentang bagaimana model akan digeneralisasikan ke set data independen.
+
+\par
+\end{itemize}
+\item Penjelasan / Maksud Dari Score pada :
+\begin{itemize}
+\item Random forest ( 44\% )
+\par Maksud arti score 44\%  pada random forest adalah hasil dari akurasi. Yang menggunakan 5 buah atribut yaitu dari 5 baris pertama dari set pelatihan yang akan memprediksi spesies 10, 28, 156, 10 dan 43.
+\par
+
+\item Decision Tree ( 27\% )
+\par Maksud arti score 27\% pada decission tree adalah presentasi hasil dari perhitungan dataset. Dari set tentang burung pipit. Confusion matrix memberi tau hal-hal yang diharapkan, artinya, butrung-burung yang terlihat mirip saling bingung satu sama lain. 
+\par
+
+\item SVM ( 29\% )
+\par Maksud arti score 29\% dari SVM adalah hasil pendekatan jaringan saraf. Di sini, akurasinya adalah 27\%, yang kurang dari akurasi 44\% sebelumnya. Oleh karena itu, dessicion tree menjadi  lebih buruk. Jika kita menggunakan Support Vector Machine (SVM), yang merupakan neural pendekatan jaringan, outputnya 29\%. Jadi 29\% pada SVM merupakan hasil otputannya.
+\par
+\par Hasil tersebut didapat dari hasil valdasi silang untuk memastikan bahwa membagi training test dengan cara yang berbeda. Sehingga didapat outputnya 44\% untuk hutan acak, 27\% untuk pohon keputusan, dan 29\% untuk SVM.
+\par
+\end{itemize}
+
+\par
+\item Confusion Matrix Dan Ilustrasinya
+\begin{itemize}
+\item Cara Membaca Confusion Matrix :
+\par Perhitungan confusion matrix adalah sebagai berikut, akan saya beri contoh sederhana yaitu pengambilan keputusan untuk mendapatkan bantuan beasiswa. Saya menggunakan dua atribut, yaitu rekening listrik dan gaji. Yang pertama kita lakukan yaitu mencari 4 nilai yaitu a,b,c, dan d:
+\par a= 4
+\par b= 1
+\par c= 1
+\par d= 2
+\par Kemudian kita dapat mencari nilai Recall, Precision, accuracy dan Error Rate
+\par Recall =2/(1+2) = 0,66
+\par Precision = 2/(1+2) = 0,66
+\par Accuracy =(4+2)/(4+1+1+2) = 0,75
+\par Error Rate =(1+1)/(4+1+1+4) = 0,2
+\par Ilustrasi Confusion Matrix :
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1]{figures/AIP/asm3.PNG}
+\caption{Confussion Matrik}
+\label{contoh}
+\end{figure}
+\end{itemize}
+
+\par
+\par
+\item Voting Random Forest Dan Ilustrasi Gambarnya.
+\par
+\begin{itemize}
+\item Pengertian Voting pada Random Forest	:
+\par Metode ensemble dapat mencapai akurasi tinggi dengan membangun beberapa pengklasifikasi dan menjalankan
+masing-masing secara mandiri. Ketika classifier membuat sebuah keputusan, kamu dapat memanfaatkan yang terbaik
+keputusan umum dan rata-rata. Jika kita menggunakan metode yang paling umum, itu disebut voting.
+\item Ilustrasi Gambar Voting Random Forest :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1]{figures/AIP/asm2.PNG}
+\caption{Voting Random forest}
+\label{contoh}
+\end{figure}
+\end{itemize}
+\end{enumerate}
