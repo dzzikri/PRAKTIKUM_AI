@@ -61,6 +61,239 @@ Please provide the result of experiment
 	\end{figure}
 \end{enumerate}
 
+\section{BAGIAN PRAKTEK}
+\section{Aip Suprapto Munari /1164063}
+
+\subsection{Aplikasi Sederhana Menggunakan Pandas}
+Disini saya akan menggunakana Dataset dari https://data.world/alexandra/generic-food-database dan akan mengambil Data Dummy sebanyak 500 records dan membuat Dataframe baru.
+\begin{verbatim}
+import pandas as pd
+gf = pd.read_csv('D:/KULIAH/SEMESTER 6/KECERDASAN BUATAN/PRAKTEK/Python-Artificial-Intelligence-Projects-for-Beginners-master/Chapter03/generic-food.csv', sep=';')
+df = pd.DataFrame(gf, columns = ['FOOD NAME', 'SCIENTIFIC NAME', 'GROUP', 'SUB GROUP'])
+
+dummy = pd.get_dummies (df['test preparation course'])
+dummy.head()
+ 
+df = df.join(dummy)
+\end{verbatim}
+Maksud dari kodingan diatas yaitu :
+\begin{enumerate}
+\item Baris pertama impor librari pandas dengan inisiasi pd
+\item Definisikan variabel gf (generic-food) untuk membaca file csv dengan pandas
+\item variabel df akan menggunakan function pd dataframe untuk membuat datafarme di pandas dari file CSV yang tadi.
+\item Mendefinisikan variabel dummy untuk mengubah data categorical menjadi integer. dibahwa merupakan data sebelum di Dummy. 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c2.PNG}
+\caption{Dataset Original Aip}
+\label{Aplikasi Pandas}
+\end{figure}
+
+\item Atribut atau kolom yang ingin di Dummy yaitu test preparation course. Dalam test memunculkan index dan nama keseluruhan kolom.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c3.PNG}
+\caption{Dataset Dummy Aip}
+\label{Aplikasi Pandas}
+\end{figure}
+\item kemudian df akan melakukan join dengan dataframe dummy.
+\end{enumerate}
+
+\subsection{Memecah DataFrame Menjadi 2 Dataframe}
+Dari dataframe tersebut dipecah menjadi dua dataframe yaitu 450 row pertama dan 50 row sisanya
+\begin{verbatim}
+gf_train= gf[:450]
+gf_test= gf[451:]
+\end{verbatim}
+\begin{enumerate}
+\item gf train akan mendefinisikan dataframe untuk train dengan 450 data pertama
+\item gf test mendefinisikan dataframe untuk test untuk data setelah 451. Hasilnya seperti berikut :
+\end{enumerate}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c4.PNG}
+\caption{Split DataFrame Aip}
+\label{Aplikasi Pandas}
+\end{figure}
+
+\subsection{ Vektorisasi Dan Klasifikasi Dari Data Youtube05-Shakira Dengan Decision Tree}
+\begin{enumerate}
+\item Ini hasil dari impor dataset
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c7.PNG}
+\caption{Dataset Youtube05-Shakira Aip}
+\label{Praktek}
+\end{figure}
+\item Ini hasil Setelah di Klasifikasikan dengan Decision Tree
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c6.PNG}
+\caption{Dataset Youtube05-Shakira Aip}
+\label{Praktek}
+\end{figure}
+\item Dalam in 13 impor Tree dari Sklearn. Dan mendefinisikan variabel clf untuk memanggil Decision Tree Classifier dan melakukan fit atau pengujian.
+\item Dalam In 14 menggunakan prediksi untuk clf dengan function predict  untuk memprediksi test. Dan hasilnya muncul dalam bentuk array.
+\item clf score memunculkan akurasi prediksi yang dilakukan terhadap clf.
+\end{enumerate}
+
+\subsection{Vektorisasi Dan Klasifikasi Dari Data Youtube05-Shakira Dengan SVM}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c8.PNG}
+\caption{Dataset Youtube05-Shakira SVM Aip}
+\label{Praktek}
+\end{figure}
+Dari Gambar diatas dapat dijelaskan bahwa :
+\begin{enumerate}
+\item Impor SVM dari sklearn
+\item Melakukan fit dari d train att dan d train label atau disebut dengan pengujian
+\item Mendefinisikan variabel clf untuk melakukan prediksi dataset Youtube05-Shakira dengan SVM. Dan akan muncul hasil prediksinya
+\end{enumerate}
+
+\subsection{Vektorisasi Dan Klasifikasi Dari Data Youtube05-Shakira Dengan Decision Tree 2}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c9.PNG}
+\caption{Dataset Youtube05-Shakira Aip}
+\label{Praktek}
+\end{figure}
+Maksud dari codingan diatas yaitu, mengkasifikasikan Dataset Youtube05-Shakira dengan Decision Tree dengan melakukan prediksi menggunakan function test pada d test att, dan memberikan akurasi prediksi menggunakan prediksi score.
+
+\subsection{Plotting Confusion Matrix}
+Berikut adalah skripl dari plotting confusion matrix dari contoh yang ada pada bagian teori
+\begin{verbatim}
+import matplotlib.pyplot as plt
+import itertools
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    #plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=90)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    #for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+    #    plt.text(j, i, format(cm[i, j], fmt),
+    #             horizontalalignment="center",
+    #             color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    
+
+import numpy as np
+np.set_printoptions(precision=2)
+plt.figure(figsize=(60,60), dpi=300)
+plot_confusion_matrix(cm, classes=clf, normalize=True)
+plt.show()
+\end{verbatim}
+Hasilnya adalah sebagai berikut :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c10.PNG}
+\caption{Confusion Matrix Aip}
+\label{Praktek}
+\end{figure}
+Dari gambar dapat dijelaskan bahwa data array merupakan data asli dan data prediksi yang dilakukan dengan Random Forest. Dengan melakukan normalisasi data confusion matrix.
+
+\subsection{ Menjalankan Program Cross Validation}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c5.PNG}
+\caption{Cross Validation Aip}
+\label{Aplikasi Pandas}
+\end{figure}
+Gambar diatas akan dijelaskan seperti berikut :
+\begin{enumerate}
+\item Dari sklearn mengimpor Cross Validation
+\item Variabel scores akan melakukan cross validation pada variabel clf, d train att , dan d train label
+\item Variabel shakirarata2 akan menghitung nilai rata rata dari variabel scores tadi menggunakan function mean
+\item shakirasd Menghitung standar deviasi dari data yang diberikan. Hasilnya seperti berikut :
+\end{enumerate}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c6.PNG}
+\caption{Hasil Cross Validation Aip}
+\label{Cross Validation}
+\end{figure}
+
+\subsection{Program Pengamatan Komponen Informasi}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/c11.PNG}
+\caption{Program Komponen Informas Aip}
+\label{Praktek}
+\end{figure}
+Dari gambar diatas dapat dijelaskan bahwa :
+\begin{enumerate}
+\item Max featuresnya dari range 1 sampai 10
+\item n estimators dengan range 20 sampai 40
+\item Variabel rf params berisikan function np empty dimana akan membuat array baru berisikan tipe yang didefinisikan dengan random value
+\item Mendefinisika i dimulai dari angka 0 dimana max features dan n estimators menggunakan klasifikasi randomforestclassifier menggunakan data prediksi
+\item Mendefinisikan rfparams untuk max features , n estimators, nilai rata dan std
+\end{enumerate}
+
+\section{Penanganan Error}
+AIP SUPRAPTO MUNARI 1164063
+\subsection{Error Index}
+\begin{enumerate}
+	\item
+Berikut ini merupakan eror yang didapatkan saat menjalankan program diatas
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc1.PNG}
+\caption{Error Key Aip }
+\label{Error}
+\end{figure}
+\item
+Pada gambar diatas kode erornya adalah KeyEror. Eror ini terjadi karena keyword yang dimasukan tidak ada.
+\item
+Solusi yang bisa dilakukan untuk mengatasi eror tersebut adalah sebagai berikut : 
+\end{enumerate}
+\begin{itemize}
+\item
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc2.PNG}
+\caption{Error Key Aip}
+\label{Error}
+\end{figure}
+Pada gambar diatas Dataset Generic-Food tidak terdapat atribut COLOR, maka dari itu kita harus merubahnya dengan atribut yang terdapat di dataset tersebut. Mari kita gunakan atribut SCIENTIFIC NAME. Ubah skrip menjadi seperti berikut
+\item
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc3.PNG}
+\caption{Error Key Aip}
+\label{Error}
+\end{figure}
+\item Maka ketika di run akan muncul data dummy nya seperti berikut
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc4.PNG}
+\caption{Error Key Aip}
+\label{Error}
+\end{figure}
+\end{itemize}
+
 
 
 
