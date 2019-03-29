@@ -68,6 +68,146 @@ tell about result for purpose of this research.
 \end{figure}
 \end{enumerate}
 
+\subsection{Praktek Program}
+\begin{enumerate}
+\item Cobalah dataset google, dan jelaskan vektor dari kata love, faith, fall, sick, clear, shine, bag, car, wash, motor, cycle dan cobalah untuk melakukan perbandingan similirati dari masing-masing kata tersebut. Jelaskan arti dari outputan similaritas.
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata love. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar.
+\begin{verbatim}
+gmodel['love']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E1.PNG}}
+	\caption{Love}
+	\label{c5_7}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata faith. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_8}.
+\begin{verbatim}
+gmodel['faith']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E2.PNG}}
+	\caption{Faith}
+	\label{c5_8}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata fall. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_9}.
+\begin{verbatim}
+gmodel['fall']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E3.PNG}}
+	\caption{Fall}
+	\label{c5_9}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata sick. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_10}.
+\begin{verbatim}
+gmodel['sick']
+\end{verbatim}
+
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E4.PNG}}
+	\caption{Sick}
+	\label{c5_10}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata clear. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_11}.
+\begin{verbatim}
+gmodel['clear']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E5.PNG}}
+	\caption{Clear}
+	\label{c5_11}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata shine. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_12}.
+\begin{verbatim}
+gmodel['shine']
+\end{verbatim}
+
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E6.PNG}}
+	\caption{Shine}
+	\label{c5_12}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata bag. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_13}.
+\begin{verbatim}
+gmodel['bag']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E7.PNG}}
+	\caption{Bag}
+	\label{c5_13}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata car. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_14}.
+\begin{verbatim}
+gmodel['car']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E8.PNG}}
+	\caption{Car}
+	\label{c5_14}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata wash. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_15}.
+\begin{verbatim}
+gmodel['wash']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E9.PNG}}
+	\caption{Wash}
+	\label{c5_15}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata motor. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_16}.
+\begin{verbatim}
+gmodel['motor']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E10.PNG}}
+	\caption{Motor}
+	\label{c5_16}
+\end{figure}
+\subitem Output source code dibawah akan memunculkan data vektor untuk kata cycle. bahwa vektor memiliki array sebanyak 300 dimensi. Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_17}.
+\begin{verbatim}
+gmodel['cycle']
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E11.PNG}}
+	\caption{Cycle}
+	\label{c5_17}
+\end{figure}
+\subitem Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata motor dan cycle memiliki ke samaan atau tidak.  Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_18}.
+\begin{verbatim}
+gmodel.similarity('motor','cycle')
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E12.PNG}}
+	\caption{Similariti Pada Kata Motor dan Cycle}
+	\label{c5_18}
+\end{figure}
+\subitem Pada source code dibawah menunjukkan hasil score perbandingan kata apakah kata wash dan motor memiliki ke samaan atau tidak.  Hasil pada source code tersebut dapat dilihat pada gambar \ref{c5_19}.
+\begin{verbatim}
+gmodel.similarity('wash','motor')
+\end{verbatim}
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E13.PNG}}
+	\caption{Similariti Pada Kata Wash dan Motor}
+	\label{c5_19}
+\end{figure}
+\subitem Untuk Motor dan Cycle hasilnya adalah 17\%
+\subitem Untuk Wash dan Motor hasilnya adalah 10\%
+\subitem Artinya Motor dan Cyle memang dalam kategori yang sama misalnya dalam kategori kata-kata yang disatukan/berpasangan. Mesin sudah mengetahui bahwa keduanya dapat dikategorikan sebagai sepasang kata.
+\item Jelaskan dengan kata dan ilustrasi fungsi dari extract\_words dan PermuteSentences.
+\subitem Extract\_Words merupakan function untuk menambahkan, menghilangkan atau menghapuskan, hal hal yang tidak penting atau tidak perlu di dalam teks. Pada gambar \ref{c5_20} berikut ini menggunakan function extract\_words untuk menghapus komen dengan python style , mencari data yang diinginkan, dan memberikan spasi pada teks.
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E14.PNG}}
+	\caption{Extract\_Words}
+	\label{c5_20}
+\end{figure}
+\subitem PermuteSentences berfungsi untuk melakukan pengacakan data supaya memperoleh data yang teratur. Ini merupakan class yang digunakan untuk melakukan pengocokan secara acak pada data yang ada. Digunakan cara ini agar tidak terjadi kelebihan memori pada saat dijalankan. Hasilnya dapat dilihat pada gambar \ref{c5_21}.
+\begin{figure}[ht]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/E15.PNG}}
+	\caption{Permute Sentences}
+	\label{c5_21}
+\end{figure}
+\end{enumerate}
+
 
 \section{Aip Suprapto Munari/1164063}
 \subsection{Teori}
@@ -299,4 +439,161 @@ PermuteSentences merupakan class yang digunakan untuk melakukan pengocokan secar
 \caption{PermuteSentencesi Aip}
 \label{Praktek}
 \end{figure}
+
+\subsubsection{Library Gensim TaggedDocument Dan Doc2Vac}
+Import library gensim dan meng-import modul Tagged Document dan Doc2Vac.Tagged Document adalah dokumen yang 'memisahkan informasi dan struktur dari presentasi' dengan menggunakan tag. Fungsi Doc2Vec berisi alpha dan min alpha parameter,berarti bahwa tingkat pembelajaran meluruh selama satu periode dari alpha untuk min alpha.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e18.PNG}
+\caption{Library Gensim TaggedDocument Dan Doc2Vac Aip}
+\label{Tagged Document dan Doc2Vec - Aip}
+\end{figure}
+
+\subsubsection{Menambahkan Data Training}
+Membaca direktori name dari data yang ada di dalam kurung, terdapat ada 3 data.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e19.PNG}
+\caption{Data 1 - Aip}
+\label{Data 1 - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e20.PNG}
+\caption{Data 2 - Aip}
+\label{Data 2 - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e21.PNG}
+\caption{Data 2 - Aip}
+\label{Data 2 - Aip}
+\end{figure}
+
+\subsubsection{Pengocokan Dan Pembersihan Data}
+Mengimport Library Re. Kemudian membuat fungsi utuk menghapus tag html dan perkocokan. Dimana di dalam variabel ini ada kodingan untuk menghapus tag html yaitu petik satu, tanda baca dan spasi yang berurutan. Melakukan pengacakan model terhadap data unsupervised learning. Dan kemudian baru membuat modelnya setelah dilakukan pengacakan terhadap yang pertama tadi.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e22.PNG}
+\caption{Pengocokan dan Pembersihan Data - Aip}
+\label{Pengocokan dan Pembersihan Data - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e23.PNG}
+\caption{Pengocokan dan Pembersihan Data - Aip}
+\label{Pengocokan dan Pembersihan Data - Aip}
+\end{figure}
+
+\subsubsection{Mengapa Model Harus Di Save Dan Temporari Training Harus Dihapus}
+Untuk mencegah ram agar lambat. Sedangkan kenapa temporari training harus dihapus mengosongkan memori agar sedikit lega atau tidak lemot.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e24.PNG}
+\caption{Model Disave dan Temporari Train Hapus - Aip}
+\label{Model Disave dan Temporari Train Hapus - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e25.PNG}
+\caption{Model Disave dan Temporari Train Hapus - Aip}
+\label{Model Disave dan Temporari Train Hapus - Aip}
+\end{figure}
+
+\subsubsection{Infercode}
+Untuk menyimpulkan vektor yang berhubungan dengan vektor dokumen baru dan output tersebut merupakan sebuah array.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e26.PNG}
+\caption{Infercode - Aip}
+\label{Infercode - Aip}
+\end{figure}
+
+\subsubsection{Cosinesimilarity}
+Cosine Similarity dapat diimplementasikan untuk menghitung nilai kemiripan antar kalimat dan menjadi salah satu teknik untuk mengukur kemiripan  teks yang  popular. 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e27.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e28.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e29.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e30.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\subsubsection{Praktek Score Dari Cross Validation}
+Hasil dari praktek tersebut menunjukan untuk menghitung memprediksi dan mengetahui keakuratan dari suatu nilai.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e31.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e32.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e33.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e34.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\section{Penanganan Error}
+AIP SUPRAPTO MUNARI 1164063
+\subsection{Error}
+\begin{enumerate}
+	\item
+Berikut ini merupakan eror yang didapatkan saat menjalankan program diatas
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc1.PNG}
+\caption{Error Key Aip }
+\label{Error}
+\end{figure}
+\item
+Pastikan dataset berada dalam satu folder.
+\end{enumerate}
+
+
+
+
+
+
+
+
 
