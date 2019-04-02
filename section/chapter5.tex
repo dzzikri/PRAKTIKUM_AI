@@ -206,135 +206,6 @@ gmodel.similarity('wash','motor')
 	\caption{Permute Sentences}
 	\label{c5_21}
 \end{figure}
-
-\item Jelaskan fungsi dari librari gensim TaggedDocument dan Doc2Vec disertai praktek pemakaiannya.
-\subitem Fungsi dari library gensim yaitu sebagai pemodelan topik tanpa pengawasan dan pemrosesan bahasa alami, atau bisa kita sebut dengan unsupervised.  tagged document itu sendiri untuk memasukan kata-kata pada setiap dokumennya yang akan di vektorisasi. Fungsi dari doc2vec itu sendiri ialah untuk membandingkan bobot data yang terdapat pada dokumen lainnya, apakah kata-kata didalamnya ada yang sama atau tidak. Ketika di running maka tidak terjadi apa-apa, seperti pada gambar \ref{c5_22}
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T1.PNG}}
-	\caption{Gensim TaggedDocument dan Doc2vec}
-	\label{c5_22}
-\end{figure}
-\item Jelaskan dengan kata dan praktek cara menambahkan data training dari file yang dimasukkan kepada variabel dalam rangka melatih model doc2vec.
-\subitem Untuk menambahkan data training yaitu melakukan import library os, library os berfungsi untuk melakukan interaksi antara python dengan os laptop kita masing-masing, setelah itu kita buat variabel unsup sentences. Kemudian pilih direktori tempat data kita disimpan. Lalu menyortir data yang terdapat pada folder aclImdb dan membaca file tersebut dengan ektensi .txt.
-\begin{verbatim}
-import os
-unsup_sentences = []
-for dirname in ["train/pos","train/neg","train/unsup","test/pos","test/neg"]:
-for fname in sorted(os.listdir("aclImdb/"+dirname)):
-if fname[-4:] == '.txt':
-with open("aclImdb/"+dirname+"/"+fname,encoding='UTF-8') as f:
-sent = f.read()
-words = extract_words(sent)
-unsup_sentences.append(TaggedDocument(words,[dirname+"/"+fname]))
-\end{verbatim}
-\subitem Hasil dari code yang diatas ialah terdapatnya data training dengan jumlah 10000 data dari variabel unsup\_sentences hasil running dari folder aclImdb dapat dilihat pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T2.PNG}}
-	\caption{Aclimbdb}
-	\end{figure}
-
-\begin{verbatim}
-for dirname in ["review_polarity/txt_sentoken/pos","review_polarity/txt_sentoken/neg"]:
-for fname in sorted(os.listdir(dirname)):
-if fname[-4:] == '.txt':
-with open(dirname+"/"+fname,encoding='UTF-8') as f:
-for i, sent in enumerate(f):
-words = extract_words(sent)
-unsup_sentences.append(TaggedDocument(words,["%s/%s-%d" % (dirname,fname,i)]))
-\end{verbatim}
-\subitem Untuk code berikutnya akan menambahkan data training pada variabel unsup\_sentences sekitar 64.720 data, seperti pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T3.PNG}}
-	\caption{Aclimbdb}
-\end{figure}
-
-\begin{verbatim}
-with open("stanfordSentimentTreebank/original_rt_snippets.txt",encoding='UTF-8') as f:
-for i, sent in enumerate(f):
-words = extract_words(sent)
-unsup_sentences.append(TaggedDocument(words,["rt-%d" % i]))
-\end{verbatim}
-\subitem Untuk code berikutnya akan menambahkan data training pada variabel unsup\_sentences sekitar 10.605 data, seperti pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T4.PNG}}
-	\caption{Aclimbdb}
-\end{figure}
-
-\item Jelaskan dengan kata dan praktek kenapa harus dilakukan pengocokan dan pembersihan data.
-\subitem Pengocokan data itu berguna untuk mengacak data supaya pada saat data di running bisa berjalan lebih baik dan hasil presentase akhirnya bisa lebih bagus. Sedangkan pembersihan data untuk memberikan ruang bagi ram komputer kita setelah melakukan running data sebanyak 3 juta lebih, agar lebih ringan saat proses selanjutnya. Hasil dari pengacakan data tidak ditampilkan pada spyder. Dan sebelumnya memori yang terpakai itu sekitar 87\% , setelah dikosongkan jadi 71\%. Untuk source codenya dapat dilihat sebagai berikut:
-\begin{verbatim}
-# Pengocokan data
-mute = PermuteSentences(unsup_sentences)
-# Pembersihan data
-model.delete_temporary_training_data(keep_inference=True)
-\end{verbatim}
-\item Jelaskan dengan kata dan praktek kenapa model harus di save dan kenapa temporari training harus dihapus.
-\subitem Save data untuk menyimpan file hasil dari proses training data sebelumnya, model tersebut dilakukan penyimpanan untuk memberikan keringanan pada ram agar saat kita akan melakukan training lagi, model tersebut tinggal di muat saja tanpa harus melakukan traning dari awal dan bisa menghemat waktu. Sedangkan untuk delete temporary training data untuk menghapus data training yang sebelumnya sudah dilakukan dan disimpan, tujuannya memberikan keringanan pada ram. Karena setelah melakukan proses training, ram biasanya jadi berat untuk membaca sampai komputer kita jadi lemot. Untuk source codenya dapat dilihat sebagai berikut:
-\begin{verbatim}
-# Save data
-model.save('ocean.d2v')
-# Delete temporary data
-model.delete_temporary_training_data(keep_inference=True)
-\end{verbatim}
-\item Jalankan dengan kata dan praktek maksud dari infer code.
-\subitem Infer vector yaitu membandingkan kata yang tercantum dengan vektor pada dokumen yang sudah di muat sebelumnya. Selain itu infer\_vector juga menghitung vektor dari kata yang dicantumkan pada model yang telah kita buat. Seharusnya kata yang dicantumkan itu lebih panjang lagi agar hasilnya bisa lebih baik lagi.
-\begin{verbatim}
-model.infer_vector(extract_words("I will go home"))
-\end{verbatim}
-\subitem Pada source code tersebut menghasilkan keluaran seperti pada gambar.
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T5.PNG}}
-	\caption{Infer Code}
-\end{figure}
-
-\item Jelaskan dengan praktek dan kata maksud dari cosine similarity.
-\subitem Cosine similarity yaitu membandingkan vektorisasi data diantara kedua kata yang di masukkan, Jika hasil presentase dari kedua kata tersebut lebih dari 50 persen kemungkinan kata tersebut terdapat dalam 1 file. Tapi jika kurang dari 50 persen kata tersebut tidak terdapat dalam 1 file. Hasil yang didapatkan pada code tersebut hanya 0.4 persen itu dikarenakan kata pertama dan kedua tidak memiliki kesamaan vektorisasi dan tidak terdapat pada salah satu dokumen.
-\begin{verbatim}
-from sklearn.metrics.pairwise import cosine_similarity
-cosine_similarity(
-[model.infer_vector(extract_words("she going to school, after wash hand"))],
-[model.infer_vector(extract_words("Services sucks."))])
-\end{verbatim}
-\subitem Pada source code tersebut menghasilkan keluaran seperti pada gambar
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T6.PNG}}
-	\caption{Cosine Similarity}
-\end{figure}
-
-\item Jelaskan dengan praktek score dari cross validation masing-masing metode.
-\subitem score dari cross validation yang mana mengecek data score KNN untuk menghasilkan typedata float64 dimana terdapat 5 data dari score yang typedatanya float64 tersebut. Dan disini menggunakan metode clf
-\begin{verbatim}
-scores = cross_val_score(clf, sentvecs, sentiments, cv=5)
-np.mean(scores), np.std(scores)
-\end{verbatim}
-\subitem Pada source code tersebut menghasilkan keluaran seperti pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T7.PNG}}
-	\caption{Cross Validation Metode 1}
-\end{figure}
-
-\begin{verbatim}
-scores = cross_val_score(clfrf, sentvecs, sentiments, cv=5)
-np.mean(scores), np.std(scores)
-\end{verbatim}
-\subitem Pada source code tersebut mengecek data score RF dengan menggunakan metode clfrf yang menghasilkan keluaran seperti pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T8.PNG}}
-	\caption{Cross Validation Metode 2}
-\end{figure}
-
-\begin{verbatim}
-from sklearn.pipeline import make_pipeline
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-pipeline = make_pipeline(CountVectorizer(), TfidfTransformer(), RandomForestClassifier())
-scores = cross_val_score(pipeline,sentences,sentiments, cv=5)
-np.mean(scores), np.std(scores)
-\end{verbatim}
-\subitem Pada source code tersebutcmelakukan skoring dari vektorisasi, tfidf, dan rf lalu dibuat perbandingan yang menghasilkan keluaran seperti pada gambar 
-\begin{figure}[!htbp]
-	\centerline{\includegraphics[width=1\textwidth]{figures/andi/T9.PNG}}
-	\caption{Cross Validation Metode 3}
-\end{figure}
 \end{enumerate}
 
 
@@ -568,4 +439,161 @@ PermuteSentences merupakan class yang digunakan untuk melakukan pengocokan secar
 \caption{PermuteSentencesi Aip}
 \label{Praktek}
 \end{figure}
+
+\subsubsection{Library Gensim TaggedDocument Dan Doc2Vac}
+Import library gensim dan meng-import modul Tagged Document dan Doc2Vac.Tagged Document adalah dokumen yang 'memisahkan informasi dan struktur dari presentasi' dengan menggunakan tag. Fungsi Doc2Vec berisi alpha dan min alpha parameter,berarti bahwa tingkat pembelajaran meluruh selama satu periode dari alpha untuk min alpha.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e18.PNG}
+\caption{Library Gensim TaggedDocument Dan Doc2Vac Aip}
+\label{Tagged Document dan Doc2Vec - Aip}
+\end{figure}
+
+\subsubsection{Menambahkan Data Training}
+Membaca direktori name dari data yang ada di dalam kurung, terdapat ada 3 data.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e19.PNG}
+\caption{Data 1 - Aip}
+\label{Data 1 - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e20.PNG}
+\caption{Data 2 - Aip}
+\label{Data 2 - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e21.PNG}
+\caption{Data 2 - Aip}
+\label{Data 2 - Aip}
+\end{figure}
+
+\subsubsection{Pengocokan Dan Pembersihan Data}
+Mengimport Library Re. Kemudian membuat fungsi utuk menghapus tag html dan perkocokan. Dimana di dalam variabel ini ada kodingan untuk menghapus tag html yaitu petik satu, tanda baca dan spasi yang berurutan. Melakukan pengacakan model terhadap data unsupervised learning. Dan kemudian baru membuat modelnya setelah dilakukan pengacakan terhadap yang pertama tadi.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e22.PNG}
+\caption{Pengocokan dan Pembersihan Data - Aip}
+\label{Pengocokan dan Pembersihan Data - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e23.PNG}
+\caption{Pengocokan dan Pembersihan Data - Aip}
+\label{Pengocokan dan Pembersihan Data - Aip}
+\end{figure}
+
+\subsubsection{Mengapa Model Harus Di Save Dan Temporari Training Harus Dihapus}
+Untuk mencegah ram agar lambat. Sedangkan kenapa temporari training harus dihapus mengosongkan memori agar sedikit lega atau tidak lemot.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e24.PNG}
+\caption{Model Disave dan Temporari Train Hapus - Aip}
+\label{Model Disave dan Temporari Train Hapus - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e25.PNG}
+\caption{Model Disave dan Temporari Train Hapus - Aip}
+\label{Model Disave dan Temporari Train Hapus - Aip}
+\end{figure}
+
+\subsubsection{Infercode}
+Untuk menyimpulkan vektor yang berhubungan dengan vektor dokumen baru dan output tersebut merupakan sebuah array.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e26.PNG}
+\caption{Infercode - Aip}
+\label{Infercode - Aip}
+\end{figure}
+
+\subsubsection{Cosinesimilarity}
+Cosine Similarity dapat diimplementasikan untuk menghitung nilai kemiripan antar kalimat dan menjadi salah satu teknik untuk mengukur kemiripan  teks yang  popular. 
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e27.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e28.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e29.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e30.PNG}
+\caption{Cosinesimilarity - Aip}
+\label{Cosinesimilarity - Aip}
+\end{figure}
+
+\subsubsection{Praktek Score Dari Cross Validation}
+Hasil dari praktek tersebut menunjukan untuk menghitung memprediksi dan mengetahui keakuratan dari suatu nilai.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e31.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e32.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e33.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.3]{figures/AIP/e34.PNG}
+\caption{Score Cross Validation - Aip}
+\label{Score Cross Validation - Aip}
+\end{figure}
+
+\section{Penanganan Error}
+AIP SUPRAPTO MUNARI 1164063
+\subsection{Error}
+\begin{enumerate}
+	\item
+Berikut ini merupakan eror yang didapatkan saat menjalankan program diatas
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/AIP/errorc1.PNG}
+\caption{Error Key Aip }
+\label{Error}
+\end{figure}
+\item
+Pastikan dataset berada dalam satu folder.
+\end{enumerate}
+
+
+
+
+
+
+
+
 
