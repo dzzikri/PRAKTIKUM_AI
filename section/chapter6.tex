@@ -296,3 +296,84 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 
 \end{enumerate}
 
+
+
+
+
+
+\subsection{Praktek}
+\begin{enumerate}
+\item Menjelaskan Isi Dari Data GTZAN Genre Colection dan Data Freesound
+\begin{itemize}
+\par Dataset GTZAN memiliki 1000 potongan file musik yang berdurasi kurang lebih sekitar 30 detik untuk meload data kita akan menggunakan library python, librosa untuk mengekstrak fitur dari lagu yang terdiri dari 10 kelas genre yaitu blues, classical, country, disco, hip hop, jazz, metal, popular, reggae, dan rock.
+\par Hasil :
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[scale=0.7]{figures/andi/satu.PNG}
+\caption{NO 1}
+\label{Contoh Gambar 1}
+\end{figure}
+\par Baris 1: filename jazz merupakan code program untuk memuat inputan data jazz
+\par Baris 2: x jazz dan y jazz merupakan variable yang datanya akan di load menggunakan
+library librosa, yang nantinya akan di gunakan pada MFCC
+\end{itemize}
+\par
+
+\item Menjelaskan Perbaris Kode Program Fungsi Dari display mfcc()
+\begin{itemize}
+\item Kode Program
+\par Kode Program 2\ref{dua} :
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[scale=0.7]{figures/andi/dua.PNG}
+\caption{Kode Program No 2}
+\label{COntoh Gambar 2}
+\end{figure}
+\end{itemize}
+\begin{itemize}
+\item Hasil 
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[scale=0.7]{figures/andi/dua2.PNG}
+\caption{Hasil No 2}
+\label{Contoh gambar 2}
+\end{figure}
+\par  Baris 1: Untuk menampilkan vektorisasi sebuah suara
+\par  Baris 2: membuat variable y agar dapat membaca variable song pada library load song
+\par  Baris 3: Untuk mengubah variable y menjadi suara vektor
+\par  Baris 4: Mengubah plot gambar dengan ukuran 10x4
+\par  Baris 5: Menampilkan Spektogram atau chromagram agar code program dapat berwarna
+\par  Baris 6: menambahkan colorbar pada plot
+\par  Baris 7: menetapkan judul lagu
+\par  Baris 8: memberikan label pada grafik
+\par  Baris 9: Menampilkan hasil plot
+\end{itemize}
+\par
+
+\item Jelaskan Kode Program extract features song(). Mengapa Yang Diambil 25000 Baris Pertama
+\begin{itemize}
+\item Penjelasan Kode program
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[scale=0.7]{figures/andi/tiga.PNG}
+\caption{Hasil No 3}
+\label{Contoh Gambar 3}
+\end{figure}
+\par Baris 1: Membuat fungsi extract features song dengan inputan f 
+\par Baris 2: Membuat variabel y untuk meload inputan f dari perintah librosa load song
+\par Baris 3: Membuat variabel mfcc untuk membuat feature dari variabel y
+\par Baris 4: Membuat normalisasi nilai antara -1 sampai 1
+\par Baris 5: Mengambil 25000 data pertama berdasarkan durasi suara lalu dikembalikan salinan arraynya  dan dikecilkan menjadi satu.
+\item Mengapa Yang Diambil 25000 Baris Pertama
+\par Diambil 25000 baris pertama karena agar eksekusi data atau saat running tidak memakan waktu yang cukup lama.
+\end{itemize}
+\par
+
+\subsection{Penanganan Eror}
+\begin{enumerate}
+\item ScreenShoot Error
+\item Tuliskan kode eror dan jenis errornya.
+\item Solusi pemecahan masalah error tersebut.
+\end{enumerate}
+\end{enumerate}
+
