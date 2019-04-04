@@ -155,12 +155,12 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 
 \end{itemize}
 \end{enumerate}
-
 \subsection{Praktek}
 \begin{enumerate}
 \item Menjelaskan Isi Dari Data GTZAN Genre Colection dan Data Freesound
 \begin{itemize}
 \par Isi dari data GTZAN adalah data musik berdasarkan genre atau jenis dari lagu.Yang sudah di folderkan berdasarkan jenis lagu nya masing-masing.
+\lstinputlisting{src/1164063/1-Aip.py}
 \par Hasil \ref{no1Aip} :
 \begin{figure}[ht]
 \centering
@@ -176,6 +176,7 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \item Menjelaskan Perbaris Kode Fungsi Dari display mfcc()
 \begin{itemize}
 \item Kode Program
+\lstinputlisting{src/1164063/2-Aip.py}
 \par Kode Program 2\ref{kodeprogramno2} :
 \begin{figure}[ht]
 \centering
@@ -208,6 +209,7 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \item Menjelaskan Kode Program extract features song() dan Mengapa Yang Diambil 25000 Baris Pertama
 \begin{itemize}
 \item Penjelasan Kode program
+\lstinputlisting{src/1164063/3-Aip.py}
 \par Hasil 3\ref{hasil3} :
 \begin{figure}[ht]
 \centering
@@ -227,6 +229,7 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \item Menjelaskan Kode Program generate features dan labels 
 \begin{itemize}
 \item Penjelasan Kode program
+\lstinputlisting{src/1164063/4-Aip.py}
 \par Hasil 4\ref{hasil4} :
 \begin{figure}[ht]
 \centering
@@ -251,11 +254,11 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \par Baris 15: Mengembalikan dan menampilkan hasil eksekusi dari variabel parameter all features dan onehot labels perintah dari np.stack.
 \end{itemize}
 \par
-
-
+\par
 \item Menjelaskan Mengapa Fungsi generate features and labels sangat lama ketika meload dataset genre
 \begin{itemize}
 \item Kenapa saat load dataset genre lama? karena ada 1000 data yang di proses.
+\lstinputlisting{src/1164063/5-Aip.py}
 \par Hasil \ref{no5Aip} :
 \begin{figure}[ht]
 \centering
@@ -277,9 +280,166 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \par Baris 11: Memproses 100 lagu di genre rock
 \end{itemize}
 \par
+\par
+\item Mengapa Harus Dilakukan Pemisahan Data Training Dan Data Set Sebesar 80\%?
+\begin{itemize}
+\item Penjelasan :
+\par Diperlukan Pemisahan sebesar 80\% data dikarenakan untuk kemudahan dalam melakukan pengacakan yang dimana untuk komposisinya sendiri sebesar 80\% untuk data training dan 20\% untuk data test ( dari dataset ). Data trainingnya memang diharuskan lebih banyak sehingga pada saat pengacakan yang dilakukan datanya akan berada pada urutan yang berbeda.
+\item Code Yang Digunakan :
+\par 
+\par
+\lstinputlisting{src/1164063/6-Aip.py}
+\par
+\par
+\item Penjelasan Perbaris ( Tapi dalam soal tidak diperintahkan namun hanya saya jelaskan ) :
+\begin{enumerate}
+\item Baris Code 1 : Melakukan Proses Training split dimana akan memisahkan training set sebanyak 80\%
+\item Baris Code 2 : Melakukan penumpukan features dan labels yang didefinisikan dalam variabel all\_data
+\item Baris Code 3 : Melakukan Pengocokan ( shuffle ) untuk variabel all\_data 
+\item Baris Code 4 : Membuat variabel splitidx untuk mengkalikan isi dari variabel all\_data dengan training\_split yang ada.
+\item Baris Code 5 : Merealisasikan variabel train dan test dengan all\_data yang telah diproses dengan variabel splitidx
+\item Baris Code 6 - 7 : Memisahkan mana yang termasuk data train dan mana yang termasuk data test dengan perintah / pada np.shape kemudian di cetak
+\item Baris Code 8 - 9 : Menampilkan isi train dari 2 variabel yaitu train\_input dan train\_labels
+\item Baris Code 10-11 : Menampilkan isi test dari 2 variabel yaitu test\_input dan test\_labels
+\item Baris Code 12-13 : Mencetak / menampilkan data training dimana terdapat 800 baris dan data test sebesar 200 baris dengan jumlah kolom yang sama yaitu 25010
+\par
+\end{enumerate}
+\item  Ilustrasi Gambar : \ref{pemisahan-data-train-set-Aip} dan  \ref{pemisahan-data-train-set-2-Aip}
+\begin{itemize}
+\item Penjelasan : 
+\par Berdasarkan gambar ataupun hasil dari codingan tersebut, memperlihatkan bahwa data dipisah dan dipecah berpatokan dengan ketentuan 80\%. Untuk hasil pertama data trainingnya ada 800 baris dengan 25000 kolom dan data set sebanyak 200 baris dengan 10 kolom, sedangkan untuk hasil kedua yang telah digabungkan dengan one-hot encoding maka data training terdapat 800 baris dan data set dengan 200 baris namun keduanya memiliki jumlah kolom yang sama yaitu 25010.
+\par
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/datatrainset.PNG}
+\caption{Pemisahan Data Training Dan Dataset - Aip}
+\label{pemisahan-data-train-set-Aip}
+\end{figure}
+\par
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/datatrainset2.PNG}
+\caption{Pemisahan Data Training Dan Dataset 2 - Aip}
+\label{pemisahan-data-train-set-2-Aip}
+\end{figure}
+\par
+\end{itemize}
+\end{itemize}
+\par
+\par
+\item Penjelasan Parameter Dari Fungsi Sequential().
+\begin{itemize}
+\item Code Yang Digunakan :
+\par
+\lstinputlisting{src/1164063/7-Aip.py}
+\par Penjelasan :
+\item Ilustrasi Gambar : \ref{fungsi-sequential-Aip}
+\par Pada gambar tersebut dapat dilihat bahwa untuk layer pertama densenya dari 100 neuron kemudian untuk inputan activationnya menggunakan fungsi relu ( nilai maksimum yang akan dipilih ). Dense 10 mengkategorikan 10 neuron untuk jenis genrenya untuk keluarnnya menggunakan aktivasi yaitu fungsi Softmax.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/sequential.PNG}
+\caption{Fungsi Sequential - Aip}
+\label{fungsi-sequential-Aip}
+\end{figure}
+\par
+\end{itemize}
+\par
+\par
+\item Penjelasan Masing-Masing Parameter Dari Fungsi Compile().
+\begin{itemize}
+\item Code Yang Digunakan :
+\par
+\lstinputlisting{src/1164063/8-Aip.py}
+\par
+\par
+\item Ilustrasi Gambar : \ref{fungsi-compile-Aip}
+\par
+\par Penjelasan :
+\par Pada gambar dapat dilihat bahwa untuk model.compilenya dilakukan pemrosesan menggunakan algortima adam sebagai optimizer yang sudah didefinisikan.Kemudian adam tersebut merupakan algoritme pengoptimalan dan untuk memperbarui bobot jaringan yang berulang berdasarkan data training sebelumnya. Untuk loss sendiri menggunakan categorical\_crossentropy yang difungsikan sebagai optimasi skor / accuracy. Dan model tersebut digabungkan serta disimpulkan kemudian dicetak.
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/compile.PNG}
+\caption{Fungsi Compile - Aip}
+\label{fungsi-compile-Aip}
+\end{figure}
+\par
+\end{itemize}
+\par
+\par
+\item Penjelasan Masing-Masing Parameter Dari Fungsi Fit().
+\begin{itemize}
+\item Code Yang Digunakan :
+\par
+\lstinputlisting{src/1164063/9-Aip.py}
+\par
+\item Penjelasan :
+\par Berdasarkan gambar tersebut dapat dilihat bahwa pada model fit dilakukan pelatihan dengan epoch(  iterasi berapa kali nilai digunakan ) dengan rambatan balik sebanyak 10, kemudian dalam sekali epochs dilakukan 32  sampel yang diproses sebelum model diperbarui. Dilakukan validation\_split sebesar 20\% untuk melakukan pengecekan pada cross score validation yang telah dilakukan.
+\par
+\par
+\item Ilustrasi Gambar : \ref{fungsi-fit-Aip}
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/fit.PNG}
+\caption{Fungsi Fit-Aip}
+\label{fungsi-fit-Aip}
+\end{figure}
+\par
+\end{itemize}
+\par
+\par
+\item Penjelasan Masing-Masing Parameter Dari Fungsi Evaluate().
+\begin{itemize}
+\item Code Yang Digunakan :
+\par
+\lstinputlisting{src/1164063/10-Aip.py}
+\par
+\item Penjelasan :
+\par Berdasarkan code maka dapat dilihat bahwa dengan menggunakan test input dan test label dilakukan evaluasi atau proses menemukan model terbaik yang mewakili data dan seberapa baik model yang dipilih akan dijalankan kedepannya. 
+\par Kemudian pada hasilnya sendiri dapat dilihat bahwa Loss merupaka hasil prediksi yang salah sebanyak 1,7985 dan keakurasian prediksinya sebesar 0,4200.
+\par
+\par
+\item Ilustrasi Gambar : \ref{fungsi-evaluate-Aip}
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/evaluate.PNG}
+\caption{Fungsi Evaluate - Aip}
+\label{fungsi-evaluate-Aip}
+\end{figure}
+\par
+\par
+\par
+\end{itemize}
+\item Penjelasan Masing-Masing Parameter Dari Fungsi Predict().
+\begin{itemize}
+\item Code Yang Digunakan :
+\par
+\lstinputlisting{src/1164063/11-Aip.py}
+\par
+\par
+\item Ilustrasi Gambar : \ref{fungsi-predict-Aip}
+\par Penjelasan :
+\par Code tersebut dipergunakan untuk melakukan prediksi diambil dari satu baris berdasarkan test\_input . Nilai yang tertinggi terdapat pada label kedua yang dipilih prediksi yang tepat kemudian akan dikelompokkan.
+\par
+\par
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.2]{figures/AIP/predict.PNG}
+\caption{Fungsi Predict - Aip}
+\label{fungsi-predict-Aip}
+\end{figure}
+\par
+\par
+\end{itemize}
+\end{enumerate}
 
 \subsection{Penanganan Error}
 \begin{enumerate}
+\lstinputlisting{src/1164063/error-Aip.py}
 \item Skrinsut Error
 \begin{figure}[ht]
 \centering
@@ -291,13 +451,7 @@ Sebuah jenis model yang digunakan dalam perhitungan ataupun code program yang di
 \par Kode Error: "Name Error" name 'librosa' is not defined
 \item Penanganan
 \par Mendefinisikan library librosa
-
 \end{enumerate}
-\end{enumerate}
-
-
-
-
 
 \section{Andi Muh Aslam}
 \subsection{Teori}
