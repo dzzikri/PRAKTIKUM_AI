@@ -199,14 +199,14 @@ ketikan, clf = svm.SVC(gamma='scale') berfungsi untuk mendeklarasikan suatu valu
 Ketikan, X, y = iris.data, iris.target, artinya X sebagai data iris, dan y merupakan larik target.
 \item
 Ketikan, clf.fit(X, y) berfungsi untuk melakukan pengujian classifier. hasilnya seperti ini
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip7.png}
    	 \caption{Hasil Pengujian Classifier}	
 	\end{center}
 \end{figure}
 \item
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip8.png}
    	 \caption{Hasil Pengujian Classifier}	
@@ -215,14 +215,14 @@ Ketikan, clf.fit(X, y) berfungsi untuk melakukan pengujian classifier. hasilnya 
 Dari gambar diatas dapat dijelaskan bahwa akan mengimport Pickle dari Python. Pickle digunakan untuk serialisasi dan de-serialisasi struktur objek Python. Objek apa pun dengan Python dapat di-Pickle sehingga dapat disimpan di disk. kemudian menyimpan data objek ke file CLF sebelumnya dengan menggunakan function pickle.dumps(clf).
 \item
 Setelah mengetikan fungsi fungsi diatas, selanjutnya ketikan "clf2 = pickle.loads(s)" yang artinya pickle.loads digunakan untuk memuat data pickle dari string byte. "S" dalam loads mengacu pada fakta bahwa dalam Python 2, data dimuat dari string.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip9.png}
    	 \caption{Pickle Pada Python}	
 	\end{center}
 \end{figure}
 \item
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip10.png}
    	 \caption{Pengujian Classifier Pickle}	
@@ -234,7 +234,7 @@ Dalam kasus khusus scikit-learn, mungkin lebih menarik untuk menggunakan joblib 
 
 dump(clf, 'filename.joblib') akan merekontruksi file CLF yang tadi sudah dideklarasikan.\\
 clf = load('filename.joblib') untuk mereload model yang sudah di Pickle\\
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip11.png}
    	 \caption{Penggunaan Joblib}	
@@ -247,14 +247,14 @@ clf = load('filename.joblib') untuk mereload model yang sudah di Pickle\\
 \item
 Import numpy as np, digunakan untuk mengimport Numpy sebagai np.\\
 From sklearn import randomprojection artinya modul yang mengimplementasikan cara sederhana dan efisien secara komputasi untuk mengurangi dimensi data dengan memperdagangkan sejumlah akurasi yang terkendali (sebagai varian tambahan) untuk waktu pemrosesan yang lebih cepat dan ukuran model yang lebih kecil.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip12.png}
    	 \caption{Deklarasi Numpy}	
 	\end{center}
 \end{figure}
 \item
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip13.png}
    	 \caption{Contoh Type Casting}	
@@ -266,7 +266,7 @@ X = rng.rand(10, 2000) artinya akan merandom value antara 10 sampai 2000.\\
 X = np.array(X, dtype='float32') Array numpy terdiri dari buffer memori "mentah" yang diartikan sebagai array melalui "views". Anda dapat menganggap semua array numpy sebagai tampilan. Mendeklarasikan X sebagai float32.
 \item
 Dalam contoh ini, X adalah float32, yang dilemparkan ke float64 oleh fittransform (X).
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip14.png}
    	 \caption{Menggunakan FitTransform}
@@ -278,7 +278,7 @@ Target regresi dilemparkan ke float64 dan target klasifikasi dipertahankan.
 list(clf.predict(irisdata[:3])), akan memprediksi 3 data dari iris.\\
 clf.fit irisdata, iristargetnames[iristarget] menguji classifier dengan ada targetnya yaitu irisnya sendiri.\\
 list(clf.predict(irisdata[:3])), setelah diuji maka akan muncul datanya seperti dibawah ini\\
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip15.png}
    	 \caption{Regresi Yang Dilempar}
@@ -291,7 +291,7 @@ Refitting dan Memperbaharui Parameter
 y = rngbinomial(1, 0.5, 100) , random value dengan angka binomial atau suku dua untuk y \\
 clfsetparams(kernel='linear')fit(X, y) mengubahn kernel default menjadi linear \\
 clfsetparams(kernel='rbf', gamma='scale')fit(X, y)  Di sini, kernel default rbf pertama kali diubah menjadi linear melalui\\ SVCsetparams () setelah estimator dibuat, dan diubah kembali ke rbf untuk mereparasi estimator dan membuat prediksi kedua.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip16.png}
    	 \caption{Refitting dan Memperbaharui Parameter}
@@ -302,7 +302,7 @@ MultiClass VS MultiLabel Classifier \\
 from sklearn.multiclass import OneVsRestClassifier ,adalah  ketika kita ingin melakukan klasifikasi multiclass atau multilabel dan baik unutk menggunakan OneVsRestClassifier per kelas. Untuk setiap classifier, kelas tersebut dipasang terhadap semua kelas lainnya. (Ini cukup jelas dan itu berarti bahwa masalah klasifikasi multiclass / multilabel dipecah menjadi beberapa masalah klasifikasi biner).\\
 from sklearn.preprocessing import LabelBinarizer ,adalah kelas utilitas untuk membantu membuat matriks indikator label dari daftar label multi-kelas\\
 Dalam gambar dibawah, classifier cocok pada array 1d label multiclass dan oleh karena itu metode predict () memberikan prediksi multiclass yang sesuai.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip17.png}
    	 \caption{MultiClass Classifier}
@@ -310,7 +310,7 @@ Dalam gambar dibawah, classifier cocok pada array 1d label multiclass dan oleh k
 \end{figure}
 \item
 Di sini, classifier cocok () pada representasi label biner 2d dari y, menggunakan LabelBinarizer. Dalam hal ini predict () mengembalikan array 2d yang mewakili prediksi multilabel yang sesuai.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip18.png}
    	 \caption{MultiClass Classifier biner 2D}
@@ -319,7 +319,7 @@ Di sini, classifier cocok () pada representasi label biner 2d dari y, menggunaka
 \item
 from sklearn.preprocessing import MultiLabelBinarizer , artinya Transformasi antara iterable dari iterables dan format multilabel.\\
 Dalam hal ini, penggolongnya sesuai pada setiap instance yang diberi beberapa label. MultiLabelBinarizer digunakan untuk membuat binarize array 2d dari multilabel agar sesuai. Hasilnya, predict () mengembalikan array 2d dengan beberapa label yang diprediksi untuk setiap instance.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/aip19.png}
    	 \caption{MultiLabel Classifier}
@@ -333,7 +333,7 @@ HARI KEDUA
 \begin{enumerate}
 	\item
 	Berikut ini merupakan eror yang ditemui pada saat melakukan percobaan skrip.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/eror2.png}
    	 \caption{Eror Import}
@@ -346,7 +346,7 @@ Solusinya bisa dilakukan seperti berikut :\\
 eror diats terjadi dikarenakan Library Joblib belum terinstal pada PC. Maka dari itu sekarang kita harus menginstalnya dulu.
 	\item
 Buka CMD, kemudian ketikan "pip install joblib" tunggu sampai instalasi berhasil seperti gambar berikut.
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/solusi2.png}
    	 \caption{Instal Library Joblib}
@@ -354,7 +354,7 @@ Buka CMD, kemudian ketikan "pip install joblib" tunggu sampai instalasi berhasil
 \end{figure}
 	\item
 Apabila sudah terinstall, dapat dilakukan lagi import library joblib, maka akan berhasil seperti dibawah berikut
-\begin{figure}
+\begin{figure}[!hbtp]
 	\begin{center}
    	 \includegraphics[scale=1]{figures/solusi2_1.png}
    	 \caption{Berhasil Import Library Joblib}
@@ -362,18 +362,18 @@ Apabila sudah terinstall, dapat dilakukan lagi import library joblib, maka akan 
 \end{figure}
 \end{enumerate}
 
-\begin{figure}[ht]\centerline{\includegraphics[width=1\textwidth]{figures/a1.PNG}}\caption{Download Anaconda.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a2.PNG}}\caption{Langkah pertama instalasi anaconda.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a3.PNG}}\caption{Langkah kedua instalasi anaconda.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a4.PNG}}\caption{Langkah ketiga instalasi anaconda.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a5.PNG}}\caption{Langkah terakhir instalasi anaconda.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a6.PNG}}\caption{Langkah pertama instalasi scikit pada CMD.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a7.PNG}}\caption{Langkah ketiga instalasi conda scikit pada CMD.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a8.PNG}}\caption{Langkah kedua pilih y.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a9.PNG}}\caption{Langkah cek version yang diinstall.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a10.PNG}}\caption{Hasil Tampilan 1.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a11.PNG}}\caption{Hasil Tampilan 2.}\end{figure}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/a12.PNG}}\caption{Hasil Tampilan 3.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=1\textwidth]{figures/a1.PNG}}\caption{Download Anaconda.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a2.PNG}}\caption{Langkah pertama instalasi anaconda.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a3.PNG}}\caption{Langkah kedua instalasi anaconda.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a4.PNG}}\caption{Langkah ketiga instalasi anaconda.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a5.PNG}}\caption{Langkah terakhir instalasi anaconda.}\end{figure}
+\begin{figure}[!hbtp]]\centerline{\includegraphics[width=0.75\textwidth]{figures/a6.PNG}}\caption{Langkah pertama instalasi scikit pada CMD.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a7.PNG}}\caption{Langkah ketiga instalasi conda scikit pada CMD.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a8.PNG}}\caption{Langkah kedua pilih y.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a9.PNG}}\caption{Langkah cek version yang diinstall.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a10.PNG}}\caption{Hasil Tampilan 1.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a11.PNG}}\caption{Hasil Tampilan 2.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/a12.PNG}}\caption{Hasil Tampilan 3.}\end{figure}
 =======
 
 \subsubsection{Model Presistence}
@@ -451,7 +451,7 @@ Apabila sudah terinstall, dapat dilakukan lagi import library joblib, maka akan 
 
 \subsection{Penanganan eror}
 \subsubsection{ScreenShoot Eror}
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/18.JPG}}\caption{Hasil Tampilan Error.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/18.JPG}}\caption{Hasil Tampilan Error.}\end{figure}
 \subsubsection{Tuliskan Kode Eror dan Jenis Erornya}
 \begin{itemize}
 \item \begin{verbatim}from joblib import dump, load\end{verbatim} (Kode baris pertama)
@@ -478,7 +478,7 @@ NameError: name 'load' is not defined
 \begin{enumerate}
 \item Pada masalah error sebelumnya itu dikarenakan kita belum mempunyai packaged joblib. Jadi solusinya yaitu dengan cara menginstall terlebih dahulu packaged joblibnya setelah itu baru perintah tersebut dapat dijalankan
 
-\begin{figure}[ht]\centerline{\includegraphics[width=0.75\textwidth]{figures/32.JPG}}\caption{Hasil Tampilan Uji coba perintah joblib.}\end{figure}
+\begin{figure}[!hbtp]\centerline{\includegraphics[width=0.75\textwidth]{figures/32.JPG}}\caption{Hasil Tampilan Uji coba perintah joblib.}\end{figure}
 \end{enumerate}
 
 >>>>>>> 78cdb6514db9716f252ef2024a7df6097aace611
