@@ -1,7 +1,6 @@
 \chapter{Discussion}
 Please tell more about conclusion and how to the next work of this study.
 
-<<<<<<< HEAD
 \section{Andi Muhammad Aslam/1164064}
 \subsection{Teori}
 \begin{enumerate}
@@ -10,8 +9,36 @@ Please tell more about conclusion and how to the next work of this study.
 \begin{figure}[!htbp]
 	\centerline{\includegraphics[width=1\textwidth]{figures/andi/7-1.PNG}}
 	\caption{Tokenizer}
-	\label{c7_1}
+	\label{Teori}
 \end{figure}
+
+\item Jelaskan konsep dasar K Fold Cross Validation pada dataset komentar Youtube pada kode listing 7.1.dilengkapi dengan ilustrasi atau gambar.
+\subitem Starfiedkfold yaitu mengembalikan lipatan data bertingkat. Lipatan dibuat dengan mempertahankan presentase sampel setiap kelas dari dataset youtube. dari contoh sampel dalam ilustrasi mempresentasikan sampel dataset menjadi 5 bagian di setiap kelasnya.
+
+\begin{lstlisting}[caption=K Fold Cross Validation,label={lst:7.0}]
+kfold = StratifiedKFold(n_splits=5)
+splits = kfold.split(d, d['CLASS'])
+\end{lstlisting}
+
+\item Berikut ilustrasi pada K Fold Cross Validation :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/andi/7-2.PNG}
+\caption{ KFold Cross validation}
+\label{Teori}
+\end{figure}
+
+\item Jelaskan apa maksudnya kode program for train, test in splits. dilengkapi denganilustrasi atau gambar.
+\subitem Maksudnya For Train, test in split untuk menguji dataset yang sudah di split sebelumnya agar tidak terjadi penumpukkan, yaitu dengan cepat dapat mengelompokkan validasi input data dan dapat di ShuffleSplit dan aplikasi untuk memasukkan data ke dalam satu panggilan tunggal agar dapat memisahkan data secara opsional dan subsampling.
+
+\item Berikut ilustrasi pada for train, test in splits :
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{figures/andi/7-3.PNG}
+\caption{Ilustrasi for train, test in splits}
+\label{Teori}
+\end{figure}
+
 
 \item Jelaskan apa itu Deep Learning.
 \subitem Deep Learning adalah salah satu jenis algoritma jaringan saraf tiruan yang menggunakan metadata sebagai input dan mengolahnya menggunakan sejumlah lapisan tersembunyi (hidden layer) transformasi non linier dari data masukan untuk menghitung nilai output. Algortima pada Deep Learning memiliki fitur yang unik yaitu sebuah fitur yang mampu mengekstraksi secara otomatis.
@@ -20,7 +47,8 @@ Please tell more about conclusion and how to the next work of this study.
 \item Deep Neural Network atau DNN merupakan algoritma yang berbasis neural network yang digunakan untuk mengambil keputusan.
 \item Yang membedakan Deep Learning dengan  Deep Neural Network (DNN) adalah DNN merupakan algoritma yang digunakan pada Deep Learning, sedangkan Deep Learning merupakan model yang menggunakan algoritma DNN.
 \end{itemize}
-=======
+\end{enumerate}
+
 \section{Aip Suprapto Munari-1164063}
 \subsection{Teori}
 \begin{enumerate}
@@ -61,5 +89,4 @@ Please tell more about conclusion and how to the next work of this study.
 \par
 \par
 
->>>>>>> 5a701bac6c959d3a2ce9600d266d8c6c15824556
 \end{enumerate}
