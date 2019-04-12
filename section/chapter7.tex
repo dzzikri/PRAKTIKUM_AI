@@ -39,12 +39,33 @@ splits = kfold.split(d, d['CLASS'])
 \label{Teori}
 \end{figure}
 
+\item Jelaskan apa maksudnya kode program train content = d[’CONTENT’].iloc[train idx] dan test content = d[’CONTENT’].iloc[test idx]. dilengkapi dengan ilustrasi atau gambar.
+\subitem Maksudnya untuk mengambil data pada Index CONTENT yang merupakan bagian dari train\_idx dan test\_idx. 
+Ilustrasi, apabila data diubah menjadi train content dan test content maka kita dapat memilih content apa yang ingin di tampilkan pada kolom.
+
+\item Jelaskan apa maksud dari fungsi tokenizer = Tokenizer(num words=2000) dan tokenizer.fit on texts(train content), dilengkapi dengan ilustrasi atau gambar.
+\subitem Dimana Tokenizer yang akan melakukan vektorisasi pada kata yang dimana jumlah kata yang ingin diubah kedalam bentuk token adalah 2000 kata. Untuk tokenizer.fit on texts(train content) maksudnya yaitu untuk melakukan fit tokenizer hanya untuk data train saja, tidak berlaku pada data test nya untuk kolom CONTENT. Ilustrasi, " bayi itu sedang tertidur lelap" maksudnya ini akan membuat kamus s.t word\_index ["tidur"] = 0; word\_index ["bayi"] = 1; itu merupakan kata  kamus indeks sehingga setiap kata mendapatkan nilai integer yang unik.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/7-5.PNG}}
+	\caption{Fungsi Tokenizer}
+	\label{Teori}
+\end{figure}
+
+\item Jelaskan apa maksud dari fungsi d train inputs = tokenizer.texts to matrix(train content, mode=’tfidf’) dan d test inputs = tokenizer.texts to matrix(test content, mode=’tfidf’), dilengkapi dengan ilustrasi kode dan atau gambar.
+\subitem fungsi tersebut yang akan membagi matrix TF IDF dengan amax yaitu mengembalikan nilai max array atau nilai max sepanjang sumbu. yang hasilnya akan dimasukkan kedalam variable (train input) untuk daata train dan (test input) untuk data test dengan nominal tanpa adanya bilangan negatif dan koma.
+\begin{figure}[!htbp]
+	\centerline{\includegraphics[width=1\textwidth]{figures/andi/7-6.JPG}}
+	\caption{Matrix TF IDF}
+	\label{Teori}
+\end{figure}
 
 \item Jelaskan apa itu Deep Learning.
 \subitem Deep Learning adalah salah satu jenis algoritma jaringan saraf tiruan yang menggunakan metadata sebagai input dan mengolahnya menggunakan sejumlah lapisan tersembunyi (hidden layer) transformasi non linier dari data masukan untuk menghitung nilai output. Algortima pada Deep Learning memiliki fitur yang unik yaitu sebuah fitur yang mampu mengekstraksi secara otomatis.
+
 \item Jelaskan apa itu Deep Neural dan bedanya dengan Deep Learning.
 \begin{itemize}
 \item Deep Neural Network atau DNN merupakan algoritma yang berbasis neural network yang digunakan untuk mengambil keputusan.
+
 \item Yang membedakan Deep Learning dengan  Deep Neural Network (DNN) adalah DNN merupakan algoritma yang digunakan pada Deep Learning, sedangkan Deep Learning merupakan model yang menggunakan algoritma DNN.
 \end{itemize}
 \end{enumerate}
@@ -70,7 +91,7 @@ splits = kfold.split(d, d['CLASS'])
 \par
 \par
 
-\item 	Apa Itu Deep Learning
+\item Apa Itu Deep Learning
 \begin{itemize}
 \item Penjelasan: 
 \par  Deep learning merupakan sub bidang pembelajaran mesin yang berkaitan dengan algoritma.
